@@ -22,6 +22,11 @@ public class CitizenManager
 
     public void InitializeCitizens()
     {
+        citizens.Clear();
+    }
+    
+    public void AssignCitizens()
+    {
         // 예시로 10명의 시민을 초기화합니다.
         citizens.Add(new Citizen("John", "Farmer"));
         citizens.Add(new Citizen("Emily", "Teacher"));

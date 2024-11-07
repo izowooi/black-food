@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 456051654}
   - component: {fileID: 456051653}
   m_Layer: 5
-  m_Name: conversation (1)
+  m_Name: status
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1663,11 +1663,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43ef07547f4afb9328c8183202a5b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  citizenDialogueText: {fileID: 0}
-  citizenJobText: {fileID: 0}
-  gunButton: {fileID: 0}
-  foodButton: {fileID: 0}
-  rejectButton: {fileID: 0}
+  citizenDialogueText: {fileID: 1910846713}
+  citizenJobText: {fileID: 456051653}
+  gunButton: {fileID: 1778513153}
+  foodButton: {fileID: 1518723911}
+  rejectButton: {fileID: 28269626}
 --- !u!1 &1710974358
 GameObject:
   m_ObjectHideFlags: 0

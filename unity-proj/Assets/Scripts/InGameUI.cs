@@ -12,12 +12,9 @@ public class InGameUI : MonoBehaviour
     
     void Start()
     {
-        GameInitializer gameInitializer = new GameInitializer();
-        gameInitializer.InitializeGame(() => StartNewDay());
-
-        gunButton.onClick.AddListener(() => HandleGunAction());
-        foodButton.onClick.AddListener(() => HandleFoodAction());
-        rejectButton.onClick.AddListener(() => HandleRejectAction());
+        gunButton.onClick.AddListener(HandleGunAction);
+        foodButton.onClick.AddListener(HandleFoodAction);
+        rejectButton.onClick.AddListener(HandleRejectAction);
     }
 
     void StartNewDay()
@@ -28,16 +25,16 @@ public class InGameUI : MonoBehaviour
 
     void ShowCurrentCitizen()
     {
-        Citizen currentCitizen = CitizenManager.Instance.GetCurrentCitizen();
-        if (currentCitizen != null)
-        {
-            citizenDialogueText.text = $"Hello, I'm {currentCitizen.name}. I am a {currentCitizen.job}.";
-            citizenJobText.text = currentCitizen.job;
-        }
-        else
-        {
-            StartNewDay(); // 모든 시민이 끝났다면 다음 날로 넘어갑니다.
-        }
+        // Citizen currentCitizen = CitizenManager.Instance.GetCurrentCitizen();
+        // if (currentCitizen != null)
+        // {
+        //     citizenDialogueText.text = $"Hello, I'm {currentCitizen.name}. I am a {currentCitizen.job}.";
+        //     citizenJobText.text = currentCitizen.job;
+        // }
+        // else
+        // {
+        //     StartNewDay(); // 모든 시민이 끝났다면 다음 날로 넘어갑니다.
+        // }
     }
 
     void HandleGunAction()
