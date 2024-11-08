@@ -39,18 +39,21 @@ public class InGameUI : MonoBehaviour
 
     void HandleGunAction()
     {
+        Debug.Log("Gun action");
         CitizenManager.Instance.RemoveCurrentCitizen();
         ProceedToNextCitizen();
     }
 
     void HandleFoodAction()
     {
+        Debug.Log("Food action");
         CitizenManager.Instance.GiveFoodToCurrentCitizen();
         ProceedToNextCitizen();
     }
 
     void HandleRejectAction()
     {
+        Debug.Log("Reject action");
         ProceedToNextCitizen(); // 아무 일도 하지 않고 다음 시민으로 넘어갑니다.
     }
 
