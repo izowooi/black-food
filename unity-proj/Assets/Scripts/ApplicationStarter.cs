@@ -9,9 +9,9 @@ public class ApplicationStarter : MonoBehaviour
         InitializeCitizenManager();
         
         AssignCitizensToManager();
-        //
-        // StartNewDay();
-        //
+        
+        StartNewDay();
+        
         // AllocateUserResources();
         //
         MoveToIngameScene();

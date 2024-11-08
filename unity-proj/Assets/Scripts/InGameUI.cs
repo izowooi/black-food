@@ -1,11 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class InGameUI : MonoBehaviour
 {
     public TextMeshProUGUI citizenDialogueText;
-    public TextMeshProUGUI citizenJobText;
+    public TextMeshProUGUI citizenStatusText;
     public Button gunButton;
     public Button foodButton;
     public Button rejectButton;
@@ -16,11 +17,25 @@ public class InGameUI : MonoBehaviour
         foodButton.onClick.AddListener(HandleFoodAction);
         rejectButton.onClick.AddListener(HandleRejectAction);
     }
-
-    void StartNewDay()
+    
+    // 상태창 갱신 함수
+    public void UpdateStatusDisplay()
     {
-        CitizenManager.Instance.StartNewDay();
-        ShowCurrentCitizen();
+        citizenStatusText.text = CitizenManager.Instance.GetCurrentCitizen().GenerateDescription();
+    }
+
+    // 대사창 갱신 함수
+    public void UpdateDialogueDisplay()
+    {
+        citizenDialogueText.text = CitizenManager.Instance.GetCurrentCitizen().GenerateDialogue();
+    }
+    public void StartNewDay()
+    {
+        // CitizenManager.Instance.StartNewDay();
+        // ShowCurrentCitizen();
+        
+        UpdateStatusDisplay();
+        UpdateDialogueDisplay();
     }
 
     void ShowCurrentCitizen()

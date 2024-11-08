@@ -43,6 +43,12 @@ public class Citizen
         return $"{Name}, a {Age}-year-old {Job}.";
     }
 
+    public string GenerateDialogue()
+    {
+        var random = new Random();
+        return Dialogues[random.Next(Dialogues.Length)];
+    }
+
     private bool CheckDeathByHunger()
     {
         return new Random().Next(0, 100) < Hunger;
