@@ -8,37 +8,18 @@ public class ApplicationStarter : MonoBehaviour
     {
         InitializeCitizenManager();
         
-        AssignCitizensToManager();
-        
-        StartNewDay();
-        
         // AllocateUserResources();
         //
-        MoveToIngameScene();
     }
 
     void InitializeCitizenManager()
     {
-        CitizenManager.Instance.InitializeCitizens();
+        CitizenManager.Instance.Initialize();
     }
 
-    // CitizenManager에 시민들을 할당하는 메서드 (예시, 실제 구현 필요)
-    void AssignCitizensToManager()
-    {
-        CitizenManager.Instance.AssignCitizens();
-    }
-
-    void StartNewDay()
-    {
-        CitizenManager.Instance.StartNewDay();
-    }
 
     void AllocateUserResources()
     {
     }
 
-    void MoveToIngameScene()
-    {
-        SceneManager.LoadScene("IngameScene");
-    }
 }

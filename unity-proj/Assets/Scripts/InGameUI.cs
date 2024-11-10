@@ -7,6 +7,7 @@ public class InGameUI : MonoBehaviour
 {
     public TextMeshProUGUI citizenDialogueText;
     public TextMeshProUGUI citizenStatusText;
+    public TextMeshProUGUI waitingCitizenCountText;
     public Button gunButton;
     public Button foodButton;
     public Button rejectButton;
@@ -16,8 +17,16 @@ public class InGameUI : MonoBehaviour
         gunButton.onClick.AddListener(HandleGunAction);
         foodButton.onClick.AddListener(HandleFoodAction);
         rejectButton.onClick.AddListener(HandleRejectAction);
+        
+        RefreshUI();
     }
     
+    public void RefreshUI()
+    {
+        UpdateStatusDisplay();
+        UpdateDialogueDisplay();
+        UpdateWaitingCitizenCount();
+    }
     // 상태창 갱신 함수
     public void UpdateStatusDisplay()
     {
@@ -29,6 +38,13 @@ public class InGameUI : MonoBehaviour
     {
         citizenDialogueText.text = CitizenManager.Instance.GetCurrentCitizen().GenerateDialogue();
     }
+    
+    // 대기 중인 시민수 갱신 함수
+    public void UpdateWaitingCitizenCount()
+    {
+        waitingCitizenCountText.text = $"1 일차\n{CitizenManager.Instance.CitizenQueue.Count} 명 대기 중";
+    }
+    
     public void StartNewDay()
     {
         // CitizenManager.Instance.StartNewDay();

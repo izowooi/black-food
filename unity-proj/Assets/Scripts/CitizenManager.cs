@@ -17,16 +17,22 @@ public class CitizenManager
         }
     }
     private List<Citizen> citizens = new List<Citizen>();
+    
     private List<Citizen> currentQueue = new List<Citizen>();
+    public List<Citizen> CitizenQueue => currentQueue;
+
     private int currentCitizenIndex;
 
-    public void InitializeCitizens()
+    //서버에서 시민 정보를 가져와서 저장해야함
+    public void Initialize()
     {
         citizens.Clear();
     }
     
+    //서버에서 가져온 시민 정보 중 일부를 할당해줘야함
     public void AssignCitizens()
     {
+        citizens.Clear();
         citizens.Add(new Citizen(1, "말자", "Farmer", 45, new string[] { "Let's harvest!", "The crops are growing well." }, 
                                  hunger: 20, aggression: 10, disease: 5, dailyHungerInc: 5, dailyAggressionInc: 2, dailyDiseaseInc: 1));
         citizens.Add(new Citizen(2, "숙자", "Teacher", 30, new string[] { "Education is key!", "Let's learn together." },
