@@ -33,9 +33,9 @@ public class CitizenManager
     public void AssignCitizens()
     {
         citizens.Clear();
-        citizens.Add(new Citizen(1, "말자", "Farmer", 45, new string[] { "Let's harvest!", "The crops are growing well." }, 
+        citizens.Add(new Citizen(1, "말자", "Farmer", 45, new string[] { "배고프다", "밥 좀 다오" }, 
                                  hunger: 20, aggression: 10, disease: 5, dailyHungerInc: 5, dailyAggressionInc: 2, dailyDiseaseInc: 1));
-        citizens.Add(new Citizen(2, "숙자", "Teacher", 30, new string[] { "Education is key!", "Let's learn together." },
+        citizens.Add(new Citizen(2, "숙자", "Teacher", 30, new string[] { "애미야!", "술 좀 다오" },
                                  hunger: 15, aggression: 5, disease: 10, dailyHungerInc: 4, dailyAggressionInc: 1, dailyDiseaseInc: 2));
         // citizens.Add(new Citizen(3, "Michael", "Doctor", 40, new string[] { "Health is wealth.", "Let's treat the sick." },
         //                          hunger: 10, aggression: 8, disease: 12, dailyHungerInc: 3, dailyAggressionInc: 1, dailyDiseaseInc: 2));

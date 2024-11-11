@@ -92,5 +92,8 @@ public class InGameUI : MonoBehaviour
     {
         CitizenManager.Instance.ProceedToNextCitizen();
         ShowCurrentCitizen();
+        UpdateStatusDisplay();
+        UpdateDialogueDisplay();
+
     }
 }
