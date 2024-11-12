@@ -20,6 +20,7 @@ public class TitleUI : MonoBehaviour
         Debug.Log("Move to Ingame Scene");
         CitizenManager.Instance.AssignCitizens();
         CitizenManager.Instance.StartNewDay();
+        SupplyManager.Instance.Initizlie();
         SceneManager.LoadScene("IngameScene");
         testButton.onClick.AddListener(LogHello);
 

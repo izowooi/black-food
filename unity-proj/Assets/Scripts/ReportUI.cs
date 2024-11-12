@@ -60,7 +60,7 @@ public class ReportUI : MonoBehaviour
         {
             CitizenManager.Instance.StartNewDay();
             UpdateUI(); // 다음 날 시작 후 UI 업데이트
-            uiManager.ShowReportUI();
+            uiManager.ShowInGameUI();
         }
     }
 }
