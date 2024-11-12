@@ -66,6 +66,11 @@ public class CitizenManager
         }
         currentCitizenIndex = 0;
     }
+    
+    public void EndDay()
+    {
+        CheckCitizenStatus();
+    }
 
     public Citizen GetCurrentCitizen()
     {
@@ -95,5 +100,30 @@ public class CitizenManager
     public void ProceedToNextCitizen()
     {
         currentCitizenIndex++;
+    }
+    
+    //모든 시민에 대하여 생존 체크를 한다.
+    public void CheckCitizenStatus()
+    {
+        for (int i = 0; i < citizens.Count; i++)
+        {
+            citizens[i].PassDay();
+            if (!citizens[i].IsAlive())
+            {
+                citizens.RemoveAt(i);
+            }
+        }
+    }
+
+    public string GetSurvivingCitizensCount()
+    {
+        return citizens.Count.ToString();
+    }
+
+    public string GetCitizenDetails()
+    {
+        string ret = "Citizen Details: \n" +
+                     "안녕하세요.";
+        return ret;
     }
 }
