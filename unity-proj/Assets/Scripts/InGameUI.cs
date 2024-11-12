@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InGameUI : MonoBehaviour
 {
+    private UIManager uiManager;
     public TextMeshProUGUI citizenDialogueText;
     public TextMeshProUGUI citizenStatusText;
     public TextMeshProUGUI waitingCitizenCountText;
@@ -14,6 +15,7 @@ public class InGameUI : MonoBehaviour
     
     void Start()
     {
+        uiManager = transform.parent.GetComponent<UIManager>();
         gunButton.onClick.AddListener(HandleGunAction);
         foodButton.onClick.AddListener(HandleFoodAction);
         rejectButton.onClick.AddListener(HandleRejectAction);
@@ -91,9 +93,19 @@ public class InGameUI : MonoBehaviour
     void ProceedToNextCitizen()
     {
         CitizenManager.Instance.ProceedToNextCitizen();
-        ShowCurrentCitizen();
-        UpdateStatusDisplay();
-        UpdateDialogueDisplay();
-
+        if ( CitizenManager.Instance.GetCurrentCitizen() == null)
+        {
+            //하루를 종료하고
+            // 리포트 UI 를 활성화한다.
+            CitizenManager.Instance.EndDay();
+            uiManager.ShowReportUI();
+            
+        }
+        else
+        {
+            ShowCurrentCitizen();
+            UpdateStatusDisplay();
+            UpdateDialogueDisplay();
+        }
     }
 }

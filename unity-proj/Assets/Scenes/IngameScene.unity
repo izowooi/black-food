@@ -252,6 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 50340276}
+  - component: {fileID: 50340277}
   m_Layer: 0
   m_Name: ReportUI
   m_TagString: Untagged
@@ -259,14 +260,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &50340276
-Transform:
+--- !u!224 &50340276
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50340275}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 1, z: 1}
@@ -282,6 +282,31 @@ Transform:
   - {fileID: 319012288}
   m_Father: {fileID: 1704264907}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &50340277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50340275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee3a8d76730b428bb73b126e29ac947a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  survivingCitizensText: {fileID: 1422404738}
+  currentFoodText: {fileID: 994239490}
+  currentCurrencyText: {fileID: 1439890605}
+  citizenDetailsText: {fileID: 1183648341}
+  foodDetailsText: {fileID: 1079841924}
+  currencyDetailsText: {fileID: 1247503269}
+  purchaseFoodButton: {fileID: 1516771406}
+  startNextDayButton: {fileID: 319012289}
 --- !u!1 &233252997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,7 +1681,7 @@ GameObject:
   - component: {fileID: 1079841925}
   - component: {fileID: 1079841924}
   m_Layer: 0
-  m_Name: txt_status_food
+  m_Name: txt_detail_food
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1852,7 +1877,7 @@ GameObject:
   - component: {fileID: 1183648342}
   - component: {fileID: 1183648341}
   m_Layer: 5
-  m_Name: txt_status_citizen
+  m_Name: txt_detail_citizen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2074,7 +2099,7 @@ GameObject:
   - component: {fileID: 1247503270}
   - component: {fileID: 1247503269}
   m_Layer: 0
-  m_Name: txt_status_credit
+  m_Name: txt_detail_currency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2209,7 +2234,7 @@ GameObject:
   - component: {fileID: 1422404739}
   - component: {fileID: 1422404738}
   m_Layer: 5
-  m_Name: txt_alive_citizen
+  m_Name: txt_surviving_citizen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2418,7 +2443,7 @@ GameObject:
   - component: {fileID: 1439890606}
   - component: {fileID: 1439890605}
   m_Layer: 5
-  m_Name: txt_credit
+  m_Name: txt_currency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2939,6 +2964,7 @@ GameObject:
   - component: {fileID: 1704264906}
   - component: {fileID: 1704264905}
   - component: {fileID: 1704264904}
+  - component: {fileID: 1704264908}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3030,6 +3056,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1704264908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704264903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09bba5204948641a8922ede7c37e8f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inGameUI: {fileID: 1161947872}
+  reportUI: {fileID: 50340276}
 --- !u!1 &1710974358
 GameObject:
   m_ObjectHideFlags: 0
