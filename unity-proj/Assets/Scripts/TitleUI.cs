@@ -1,29 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TitleUI : MonoBehaviour
 {
-    public Button testButton;
+    private UIManager uiManager;
+    [SerializeField] private Button startButton;
 
     private void Start()
     {
-        Debug.Log("Start");
-        //MoveToIngameScene();
+        uiManager = transform.parent.GetComponent<UIManager>();
+        startButton.onClick.AddListener(MoveToIngameScene);
     }
 
     public void MoveToIngameScene()
     {
-        Debug.Log("Move to Ingame Scene");
+        Debug.Log("Move to InGame Scene");
         CitizenManager.Instance.AssignCitizens();
         CitizenManager.Instance.StartNewDay();
         SupplyManager.Instance.Initizlie();
-        SceneManager.LoadScene("IngameScene");
-        testButton.onClick.AddListener(LogHello);
-
+        uiManager.ShowInGameUI();
     }
     
     public void QuitGame()

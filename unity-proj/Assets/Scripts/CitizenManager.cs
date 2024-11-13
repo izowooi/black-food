@@ -115,15 +115,24 @@ public class CitizenManager
         }
     }
 
-    public string GetSurvivingCitizensCount()
+    public int GetSurvivingCitizensCount()
     {
-        return citizens.Count.ToString();
+        return citizens.Count;
     }
 
     public string GetCitizenDetails()
     {
-        string ret = "Citizen Details: \n" +
-                     "안녕하세요.";
+        string ret =
+            "0 명을 아오지로 보냈습니다.\n" +
+            "0 명이 굶어 죽었습니다.\n" +
+            "0 명이 싸우다 죽었습니다.\n" +
+            "0 명이 질병으로 죽었습니다.\n\n" +
+            "남은 병사 : 1명\n" +
+            "남은 농부 : 2명\n" +
+            "남은 학생 : 0명\n" +
+            "남은 상인 : 0명\n" +
+            "남은 기술자 : 0명\n" +
+            "남은 작업자 : 0명 \n";
         return ret;
     }
 }

@@ -98,6 +98,7 @@ public class InGameUI : MonoBehaviour
             //하루를 종료하고
             // 리포트 UI 를 활성화한다.
             CitizenManager.Instance.EndDay();
+            SupplyManager.Instance.EndDay();
             uiManager.ShowReportUI();
             
         }

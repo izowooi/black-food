@@ -5,6 +5,7 @@ using TMPro;
 public class ReportUI : MonoBehaviour
 {
     private UIManager uiManager;
+    [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI survivingCitizensText;
     [SerializeField] private TextMeshProUGUI currentFoodText;
     [SerializeField] private TextMeshProUGUI currentCurrencyText;
@@ -30,14 +31,15 @@ public class ReportUI : MonoBehaviour
         // CitizenManager와 SupplyManager의 데이터로 UI 갱신
         if (CitizenManager.Instance != null)
         {
-            survivingCitizensText.text = $"Surviving Citizens: {CitizenManager.Instance.GetSurvivingCitizensCount()}";
+            survivingCitizensText.text = $"생존주민수 : {CitizenManager.Instance.GetSurvivingCitizensCount()}";
             citizenDetailsText.text = CitizenManager.Instance.GetCitizenDetails();
         }
 
         if (SupplyManager.Instance != null)
         {
-            currentFoodText.text = $"Current Food: {SupplyManager.Instance.GetCurrentFood()}";
-            currentCurrencyText.text = $"Current Currency: {SupplyManager.Instance.GetCurrentCurrency()}";
+            titleText.text = $"{SupplyManager.Instance.GetCurrentDay} 일차 보고서";
+            currentFoodText.text = $"남은 식량 : {SupplyManager.Instance.GetCurrentFood()}";
+            currentCurrencyText.text = $"남은 재화 : {SupplyManager.Instance.GetCurrentCurrency()}";
             foodDetailsText.text = SupplyManager.Instance.GetFoodDetails();
             currencyDetailsText.text = SupplyManager.Instance.GetCurrencyDetails();
         }
@@ -58,9 +60,16 @@ public class ReportUI : MonoBehaviour
         // 다음 날 시작 로직
         if (CitizenManager.Instance != null)
         {
-            CitizenManager.Instance.StartNewDay();
-            UpdateUI(); // 다음 날 시작 후 UI 업데이트
-            uiManager.ShowInGameUI();
+            if (CitizenManager.Instance.GetSurvivingCitizensCount() > 0)
+            {
+                CitizenManager.Instance.StartNewDay();
+                uiManager.ShowInGameUI();
+            }
+            else
+            {
+                uiManager.ShowGameOverUI();
+                Debug.Log("Game Over");
+            }
         }
     }
 }

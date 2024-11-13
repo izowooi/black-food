@@ -15,17 +15,25 @@ public class SupplyManager
             return instance;
         }
     }
-    
+
+    private int day;
     private int food;
     private int currency;
-
     private int price;
-    
+
+    public int GetCurrentDay => day;
+
     public void Initizlie()
     {
-        food = 100;
-        currency = 100;
+        day = 1;
+        food = 24;
+        currency = 10;
         price = 1;
+    }
+    
+    public void EndDay()
+    {
+        day += 1;
     }
 
     public void PurchaseFood()
@@ -50,7 +58,7 @@ public class SupplyManager
 
     public string GetFoodDetails()
     {
-        string ret = "식량 배급 : 2 \n" +
+        string ret = "식량 배급 : 0 \n" +
                      $"농부가 0 식량을 생산했습니다.\n";
 
         return ret;
@@ -58,7 +66,7 @@ public class SupplyManager
 
     public string GetCurrencyDetails()
     {
-        string ret = "작업자가 2 원 벌었습니다.\n" +
+        string ret = "작업자가 0 원 벌었습니다.\n" +
                      $"기술자가 0 원 벌었습니다.\n";
 
         return ret;

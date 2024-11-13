@@ -6,8 +6,11 @@ public class ApplicationStarter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         InitializeCitizenManager();
         
+        SceneManager.LoadScene("InGameScene");
+
         // AllocateUserResources();
         //
     }
