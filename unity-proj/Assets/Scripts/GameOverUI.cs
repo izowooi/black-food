@@ -17,6 +17,6 @@ public class GameOverUI : MonoBehaviour
 
     private void OnRestartButton()
     {
-        SceneManager.LoadScene("TitleScene");
+        uiManager.ShowTitleUI();
     }
 }
