@@ -77,10 +77,17 @@ public class CitizenSpawner : MonoBehaviour
     // 시민 제거 후 풀로 반환
     private void RemoveCitizen(CitizenPortrait citizen)
     {
+        // 남은 시민들의 위치를 한 칸씩 이동
+        for (int i = 1; i < activeCitizens.Count; i++)
+        {
+            RectTransform rectTransform = activeCitizens[i].GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = new Vector2((i - 1) * spacing, 0); // 한 칸 왼쪽으로 이동
+        }
+
+        // 시민 제거
         citizen.transform.SetParent(outsideTransform, false); // 풀링된 위치로 재배치
         activeCitizens.Remove(citizen);
-        citizenPool[citizen.Id] = citizen;
-    }
+        citizenPool[citizen.Id] = citizen;    }
 
     // 풀에서 시민 가져오기
     private CitizenPortrait GetPooledCitizen(int id)
