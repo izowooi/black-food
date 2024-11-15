@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 public class InGameUI : MonoBehaviour
 {
     private UIManager uiManager;
+    [SerializeField] 
+    private CitizenSpawner citizenSpawner;
     public TextMeshProUGUI citizenDialogueText;
     public TextMeshProUGUI citizenStatusText;
     public TextMeshProUGUI waitingCitizenCountText;
@@ -22,7 +25,19 @@ public class InGameUI : MonoBehaviour
         
         RefreshUI();
     }
-    
+
+    public void SpwanCitizen()
+    {
+        var array = CitizenManager.Instance.CitizenQueue.ToArray();
+        var citizenIds = new List<int>();
+        
+        foreach (var citizen in array)
+        {
+            citizenIds.Add(citizen.IllustrationId);
+        }
+        
+        citizenSpawner.ArrangeCitizens(citizenIds.ToArray());
+    }
     public void RefreshUI()
     {
         UpdateStatusDisplay();
@@ -47,15 +62,6 @@ public class InGameUI : MonoBehaviour
         waitingCitizenCountText.text = $"1 일차\n{CitizenManager.Instance.CitizenQueue.Count} 명 대기 중";
     }
     
-    public void StartNewDay()
-    {
-        // CitizenManager.Instance.StartNewDay();
-        // ShowCurrentCitizen();
-        
-        UpdateStatusDisplay();
-        UpdateDialogueDisplay();
-    }
-
     void ShowCurrentCitizen()
     {
         // Citizen currentCitizen = CitizenManager.Instance.GetCurrentCitizen();
@@ -93,6 +99,8 @@ public class InGameUI : MonoBehaviour
     void ProceedToNextCitizen()
     {
         CitizenManager.Instance.ProceedToNextCitizen();
+        citizenSpawner.ProceedToNextCitizen();
+        
         if ( CitizenManager.Instance.GetCurrentCitizen() == null)
         {
             //하루를 종료하고

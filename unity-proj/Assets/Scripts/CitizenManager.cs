@@ -38,7 +38,7 @@ public class CitizenManager
         citizens.Add(new Citizen(2, "숙자", "Teacher", 30, new string[] { "애미야!", "술 좀 다오" },
                                  hunger: 15, aggression: 5, disease: 10, dailyHungerInc: 4, dailyAggressionInc: 1, dailyDiseaseInc: 2));
         // citizens.Add(new Citizen(3, "Michael", "Doctor", 40, new string[] { "Health is wealth.", "Let's treat the sick." },
-        //                          hunger: 10, aggression: 8, disease: 12, dailyHungerInc: 3, dailyAggressionInc: 1, dailyDiseaseInc: 2));
+        //                           hunger: 10, aggression: 8, disease: 12, dailyHungerInc: 3, dailyAggressionInc: 1, dailyDiseaseInc: 2));
         // citizens.Add(new Citizen(4, "Sarah", "Nurse", 35, new string[] { "I care for everyone.", "Your health matters." },
         //                          hunger: 12, aggression: 6, disease: 9, dailyHungerInc: 4, dailyAggressionInc: 1, dailyDiseaseInc: 2));
         // citizens.Add(new Citizen(5, "David", "Engineer", 50, new string[] { "Let's build something great!", "Engineering is art." },

@@ -2834,6 +2834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43ef07547f4afb9328c8183202a5b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  citizenSpawner: {fileID: 1456679397}
   citizenDialogueText: {fileID: 1910846713}
   citizenStatusText: {fileID: 456051653}
   waitingCitizenCountText: {fileID: 1901411569}
@@ -4585,7 +4586,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleUI: {fileID: 1542221408}
-  inGameUI: {fileID: 1161947872}
+  inGameUIRect: {fileID: 1161947872}
+  inGameUI: {fileID: 1161947873}
   reportUI: {fileID: 50340276}
   gameOverUI: {fileID: 2009997566}
 --- !u!1 &1710974358
